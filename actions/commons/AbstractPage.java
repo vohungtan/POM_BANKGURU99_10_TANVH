@@ -212,11 +212,11 @@ public class AbstractPage {
 	
 	public void dragAndDrop(WebDriver driver, String locator, String sourceItem, String targetItem) {
 		element = driver.findElement(By.xpath(locator));
-		action = new Actions(driver);
 		
 		WebElement source = driver.findElement(By.xpath(sourceItem));
 		WebElement target = driver.findElement(By.xpath(targetItem));
 		
+		action = new Actions(driver);
 		action.dragAndDrop(source, target).build().perform();
 	}
 
