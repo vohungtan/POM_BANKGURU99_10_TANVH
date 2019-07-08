@@ -2,6 +2,8 @@ package commons;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -17,7 +19,9 @@ public class AbstractPage {
 	/* Web Driver */
 
 	public void openUrl(WebDriver driver, String urlValue) {
-		driver.get("urlValue");
+		driver.get(urlValue);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	public String getPageTitle(WebDriver driver) {
@@ -202,20 +206,20 @@ public class AbstractPage {
 		action = new Actions(driver);
 		action.doubleClick(element).perform();
 	}
-	
+
 	public void rightClickToElement(WebDriver driver, String locator) {
 		element = driver.findElement(By.xpath(locator));
 		action = new Actions(driver);
 		action.contextClick(element).perform();
 
 	}
-	
+
 	public void dragAndDrop(WebDriver driver, String locator, String sourceItem, String targetItem) {
 		element = driver.findElement(By.xpath(locator));
-		
+
 		WebElement source = driver.findElement(By.xpath(sourceItem));
 		WebElement target = driver.findElement(By.xpath(targetItem));
-		
+
 		action = new Actions(driver);
 		action.dragAndDrop(source, target).build().perform();
 	}
@@ -225,36 +229,49 @@ public class AbstractPage {
 		action = new Actions(driver);
 		action.sendKeys(element, key).perform();
 	}
-	
+
 	public void uploadFile(WebDriver driver, String uploadFileLocator, String startUploadLocator, String fileNamePath) {
 		element = driver.findElement(By.xpath(uploadFileLocator));
 		element.sendKeys(fileNamePath);
-		if(driver.toString().contains("internet explorer")) {
+		if (driver.toString().contains("internet explorer")) {
 			clickToElementByJS(driver, startUploadLocator);
 		} else {
 			driver.findElement(By.xpath(startUploadLocator)).click();
 		}
 	}
-	
+
 	public Object clickToElementByJS(WebDriver driver, String locator) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;  
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].click();", element);
 	}
-	
-	public void uploadMultiFile(WebDriver driver, String uploadFileLocator, String startUploadLocator, String[] files) {		
+
+	public void uploadMultiFile(WebDriver driver, String uploadFileLocator, String startUploadLocator, String[] files) {
 		element = driver.findElement(By.xpath(uploadFileLocator));
-		
+
 		String filePaths = "";
-		for(String file : files) {
+		for (String file : files) {
 			filePaths = file + "\n";
 		}
 		element.sendKeys(filePaths);
-		
-		if(driver.toString().contains("internet explorer")) {
+
+		if (driver.toString().contains("internet explorer")) {
 			clickToElementByJS(driver, startUploadLocator);
-		}else {
+		} else {
 			driver.findElement(By.xpath(startUploadLocator)).click();
 		}
+	}
+
+	public void waitForElementVisible(WebDriver driver, String locator) {
+		
+		waitExplicit = new WebDriverWait(driver, 5);
+		
+		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
+	}
+	
+	public void waitForElementInvisible(WebDriver driver, String locator) {
+		waitExplicit = new WebDriverWait(driver, 5);
+		
+		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 	}
 
 	private WebElement element;
