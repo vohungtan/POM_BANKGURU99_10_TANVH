@@ -8,30 +8,37 @@ import pageUIs.LoginPageUI;
 public class LoginPageObject extends AbstractPage {
 	WebDriver driver;
 
+	public LoginPageObject(WebDriver mappingDriver) {
+		driver = mappingDriver;
+	}
+	
+	
 	public String getLoginPageUrl() {
 		return getCurrentPageUrl(driver);
 	}
 
 	public void clickToHereLink() {
 		
-		waitForElementVisible(driver, LoginPageUI.USER_ID_TEXTBOX);
-		clickToElement(driver, LoginPageUI.USER_ID_TEXTBOX);
+		waitForElementVisible(driver, LoginPageUI.HERE_LINK);
+		clickToElement(driver, LoginPageUI.HERE_LINK);
 		
 	}
 
 	public void inputToUserIDTextbox(String username) {
-		// TODO Auto-generated method stub
+		waitForElementVisible(driver, LoginPageUI.USER_ID_TEXTBOX);
+		sendKeyToElement(driver, LoginPageUI.USER_ID_TEXTBOX, username);
 		
 	}
 
 	public void inputToPasswordTextbox(String password) {
-		// TODO Auto-generated method stub
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
+		sendKeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
 		
 	}
 
 	public void clickToLoginButton() {
-		// TODO Auto-generated method stub
-		
+		waitForElementVisible(driver, LoginPageUI.LOGIN_BUTTON);
+		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 	}
 
 }

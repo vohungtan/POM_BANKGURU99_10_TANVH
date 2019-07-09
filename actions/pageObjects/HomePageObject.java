@@ -1,16 +1,27 @@
 package pageObjects;
 
+import org.openqa.selenium.WebDriver;
+
 import commons.AbstractPage;
+import pageUIs.HomePageUI;
 
 public class HomePageObject extends AbstractPage {
-
-	public boolean isWelcomeMessageDisplayed(String string) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	WebDriver driver;
+	
+	public HomePageObject(WebDriver mappingDriver) {
+		driver = mappingDriver;
 	}
 
-	public void isUserIDDisplayed(String username) {
-		// TODO Auto-generated method stub
+	public boolean isWelcomeMessageDisplayed(String expectedText) {
+		
+		String actualText = getTextElement(driver, HomePageUI.WELCOME_MESSAGE_TEXT);
+		return actualText.equals(expectedText);
+	}
+
+	public boolean isUserIDDisplayed(String userID) {
+		String actualText = getTextElement(driver, HomePageUI.USERID_TEXT);
+		return actualText.contains(userID);
 		
 	}
 

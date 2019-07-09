@@ -27,11 +27,16 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	  driver = new FirefoxDriver();  
 	  email = "pom" + randomDataTest() + "@gmail.com";
 	  
+	  loginPage = new LoginPageObject(driver);
+	  registerPage = new RegisterPageObject(driver);
+	  homePage = new HomePageObject(driver);
+	  
 	  System.out.println("PRE-CONDITION - STEP: 1. Open BankGuru Application");
 	  driver.get("http://demo.guru99.com/v4/");
 	  
 	  System.out.println("PRE-CONDITION - STEP: 2. Get Login Page Url");
 	  loginPageUrl = loginPage.getLoginPageUrl();
+	  driver.manage().window().maximize();
 	  
   }	
 	
@@ -43,7 +48,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	  loginPage.clickToHereLink();
 	  
 	  System.out.println("REGISTER - STEP 2: Input to Email ID textbox");
-	  registerPage.inputToEmailTextbox();
+	  registerPage.inputToEmailTextbox(email);
 	  
 	  System.out.println("REGISTER - STEP 3: Click to SUBMIT button");
 	  registerPage.clickToSubmitButton();
@@ -71,7 +76,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	  
 	  
 	  System.out.println("LOGIN - STEP 5: Verify UserID displayed");
-	  homePage.isUserIDDisplayed(username);
+	  Assert.assertTrue(homePage.isUserIDDisplayed(username));
   }
 
   public int randomDataTest() {
@@ -79,7 +84,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	  return random.nextInt(999999);
   }
   
-  @AfterClass
+  @AfterClass (alwaysRun = true)
   public void afterClass() {
 	  driver.quit(); 
   }

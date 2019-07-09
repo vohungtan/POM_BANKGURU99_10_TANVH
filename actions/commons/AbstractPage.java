@@ -229,6 +229,7 @@ public class AbstractPage {
 		action = new Actions(driver);
 		action.sendKeys(element, key).perform();
 	}
+	
 
 	public void uploadFile(WebDriver driver, String uploadFileLocator, String startUploadLocator, String fileNamePath) {
 		element = driver.findElement(By.xpath(uploadFileLocator));
@@ -263,13 +264,13 @@ public class AbstractPage {
 
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		
-		waitExplicit = new WebDriverWait(driver, 5);
+		waitExplicit = new WebDriverWait(driver, 10);
 		
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
 	}
 	
 	public void waitForElementInvisible(WebDriver driver, String locator) {
-		waitExplicit = new WebDriverWait(driver, 5);
+		waitExplicit = new WebDriverWait(driver, 10);
 		
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 	}
