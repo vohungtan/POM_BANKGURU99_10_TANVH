@@ -79,6 +79,37 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	  Assert.assertTrue(homePage.isUserIDDisplayed(username));
   }
 
+  @Test
+  public void TC_03_CreateNewCustomer() {
+	  System.out.println("NEW_CUSTOMER - STEP: 1. Open New Customer page");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 2. Verify New Customer page displayed");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 3. Input to Customer Name textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 4. Click to Gender with 'male' value");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 5. Input to Date of Birth textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 6. Input to Address textarea");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 7. Input to City textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 8. Input to State textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 9. Input to PIN textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 10. Input to Phone textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 11. Input to Email textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 12. Input to Password textbox");
+	  
+	  System.out.println("NEW_CUSTOMER - STEP: 13. Input to Submit textbox");
+	  
+  }
+  
+  
   public int randomDataTest() {
 	  Random random = new Random();
 	  return random.nextInt(999999);
