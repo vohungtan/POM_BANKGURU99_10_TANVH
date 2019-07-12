@@ -25,4 +25,10 @@ public class HomePageObject extends AbstractPage {
 		
 	}
 
+	public void clickToNewCustomerPage() {
+		waitForElementVisible(driver, HomePageUI.NEW_CUSTOMER_LINK);
+		clickToElement(driver, HomePageUI.NEW_CUSTOMER_LINK);
+		
+	}
+
 }
