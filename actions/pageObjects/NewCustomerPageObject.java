@@ -83,8 +83,9 @@ WebDriver driver;
 		
 	}
 
-	public void isCustomerRegisteredSuccessMessageDisplayed() {
-		// TODO Auto-generated method stub
+	public boolean isCustomerRegisteredSuccessMessageDisplayed() {
+		waitForElementVisible(driver, NewCustomerPageUI.NEW_CUSTOMER_REGISTERED_HEADING);
+		return isControlDisplayed(driver, NewCustomerPageUI.NEW_CUSTOMER_REGISTERED_HEADING);
 		
 	}
 
