@@ -90,38 +90,48 @@ WebDriver driver;
 	}
 
 	public String getCustomerNameValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_NAME_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.CUSTOMER_NAME_VALUE_IN_TABLE);
 	}
 
 	public String getGenderValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.GENDER_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.GENDER_VALUE_IN_TABLE);
 	}
 
 	public String getBirthDayValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.DATE_OF_BIRTH_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.DATE_OF_BIRTH_VALUE_IN_TABLE);
 	}
 
 	public String getAddressValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.ADDRESS_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.ADDRESS_VALUE_IN_TABLE);
 	}
 
 	public String getStateValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.STATE_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.STATE_VALUE_IN_TABLE);
 	}
 
 	public String getPhoneValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.PHONE_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.PHONE_VALUE_IN_TABLE);
 	}
 
 	public String getEmailValueInTable() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementVisible(driver, NewCustomerPageUI.EMAIL_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.EMAIL_VALUE_IN_TABLE);
+	}
+
+	public String getCityValueInTable() {
+		waitForElementVisible(driver, NewCustomerPageUI.CITY_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.CITY_VALUE_IN_TABLE);
+	}
+
+	public String getPinValueInTable() {
+		waitForElementVisible(driver, NewCustomerPageUI.PIN_VALUE_IN_TABLE);
+		return getTextElement(driver, NewCustomerPageUI.PIN_VALUE_IN_TABLE);
 	}
 
 

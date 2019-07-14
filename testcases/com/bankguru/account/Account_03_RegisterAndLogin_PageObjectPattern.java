@@ -23,7 +23,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 	HomePageObject homePage;
 	NewCustomerPageObject newCustomer;
 	String email, username, password, loginPageUrl;
-	String customerNameValue, dateOfBirthValue, addressValue, cityValue;
+	String customerNameValue, genderMaleValue, dateOfBirthValue, addressValue, cityValue;
 	String stateValue, pinValue, phoneValue, emailValue, passwordValue;
 
 	@BeforeClass
@@ -32,7 +32,8 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 		email = "pom" + randomDataTest() + "@gmail.com";
 
 		customerNameValue = "Brain";
-		dateOfBirthValue = "01-01-1990";
+		genderMaleValue = "male";
+		dateOfBirthValue = "1990-01-01";
 		addressValue = "691 Sloan Drive";
 		cityValue = "Sarasota";
 		stateValue = "Florida";
@@ -137,12 +138,15 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 		
 		System.out.println("NEW CUSTOMER - STEP: 15. Verify all information show correct");
 		Assert.assertEquals(newCustomer.getCustomerNameValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getGenderValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getBirthDayValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getAddressValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getStateValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getPhoneValueInTable(), customerNameValue);
-		Assert.assertEquals(newCustomer.getEmailValueInTable(), customerNameValue);
+		Assert.assertEquals(newCustomer.getGenderValueInTable(), genderMaleValue);
+		Assert.assertEquals(newCustomer.getBirthDayValueInTable(), dateOfBirthValue);
+		Assert.assertEquals(newCustomer.getAddressValueInTable(), addressValue);
+		Assert.assertEquals(newCustomer.getStateValueInTable(), stateValue);
+		Assert.assertEquals(newCustomer.getCityValueInTable(), cityValue);
+		Assert.assertEquals(newCustomer.getPinValueInTable(), pinValue);
+		Assert.assertEquals(newCustomer.getPhoneValueInTable(), phoneValue);
+		Assert.assertEquals(newCustomer.getEmailValueInTable(), emailValue);
+		
 	}
 
 	public int randomDataTest() {

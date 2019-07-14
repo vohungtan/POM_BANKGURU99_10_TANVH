@@ -17,7 +17,7 @@ public class NewCustomerPageUI {
 	public static final String SUBMIT_BUTTON = "//input[@name='sub']";
 	public static final String CUSTOMER_NAME_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Customer Name']/following-sibling::td";
 	public static final String GENDER_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Gender']/following-sibling::td";
-	public static final String DATE_OF_BIRTH_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='BirthDate']/following-sibling::td";
+	public static final String DATE_OF_BIRTH_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Birthdate']/following-sibling::td";
 	public static final String ADDRESS_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Address']/following-sibling::td";
 	public static final String CITY_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='City']/following-sibling::td";
 	public static final String STATE_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='State']/following-sibling::td";
