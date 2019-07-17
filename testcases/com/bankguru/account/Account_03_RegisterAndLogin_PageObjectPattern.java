@@ -73,7 +73,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 		password = registerPage.getPasswordInformation();
 	}
 
-	@Test
+	//@Test
 	public void TC_02_LoginToSystem() {
 		System.out.println("LOGIN - STEP 1: Open Login Page");
 		registerPage.openLoginPageUrl(loginPageUrl);
@@ -92,7 +92,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 		Assert.assertTrue(homePage.isUserIDDisplayed(username));
 	}
 
-	@Test
+	//@Test
 	public void TC_03_CreateNewCustomer() {
 		System.out.println("NEW_CUSTOMER - STEP: 1. Open New Customer page");
 		homePage.clickToNewCustomerPage();
@@ -154,7 +154,7 @@ public class Account_03_RegisterAndLogin_PageObjectPattern {
 		return random.nextInt(999999);
 	}
 
-	@AfterClass(alwaysRun = true)
+	//@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		driver.quit();
 	}

@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
@@ -134,5 +135,35 @@ WebDriver driver;
 		return getTextElement(driver, NewCustomerPageUI.PIN_VALUE_IN_TABLE);
 	}
 
+	public void pressTabToMoveNextField() {
+		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX);
+		sendKeyboardToElement(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX, Keys.TAB);
+		
+	}
+
+	public String getCustomerNameErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_NAME_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.CUSTOMER_NAME_ERROR_MESSAGE);
+	}
+
+	public String getAddressErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.ADDRESS_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.ADDRESS_ERROR_MESSAGE);
+	}
+
+	public String getCityErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.CITY_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.CITY_ERROR_MESSAGE);
+	}
+
+	public String getStateErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.STATE_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.STATE_ERROR_MESSAGE);
+	}
+
+	public String getPinErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.PIN_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.PIN_ERROR_MESSAGE);
+	}
 
 }

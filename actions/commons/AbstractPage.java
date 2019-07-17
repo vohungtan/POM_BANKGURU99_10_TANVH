@@ -74,6 +74,7 @@ public class AbstractPage {
 
 	public void sendKeyToElement(WebDriver driver, String locator, String value) {
 		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
 		element.sendKeys(value);
 	}
 
@@ -264,8 +265,7 @@ public class AbstractPage {
 
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		
-		waitExplicit = new WebDriverWait(driver, 10);
-		
+		waitExplicit = new WebDriverWait(driver, 20);
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
 	}
 	

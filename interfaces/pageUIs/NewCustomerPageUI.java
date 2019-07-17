@@ -5,6 +5,11 @@ public class NewCustomerPageUI {
 	public static final String NEW_CUSTOMER_PAGE_HEADING = "//p[@class='heading3' and text()='Add New Customer']";
 	public static final String NEW_CUSTOMER_REGISTERED_HEADING = "//p[@class='heading3' and text()='Customer Registered Successfully!!!']";
 	public static final String CUSTOMER_NAME_TEXTBOX = "//input[@name='name']";
+	public static final String CUSTOMER_NAME_ERROR_MESSAGE = "//label[@id='message']";
+	public static final String ADDRESS_ERROR_MESSAGE = "//label[@id='message3']";
+	public static final String CITY_ERROR_MESSAGE = "//label[@id='message4']";
+	public static final String STATE_ERROR_MESSAGE = "//label[@id='message5']";
+	public static final String PIN_ERROR_MESSAGE = "//label[@id='message6']";
 	public static final String GENDER_MALE_RADIO = "//input[@value='m']";
 	public static final String DATE_OF_BIRTH_TEXTBOX = "//input[@name='dob']";
 	public static final String ADDRESS_TEXTAREA = "//textarea[@name='addr']";
