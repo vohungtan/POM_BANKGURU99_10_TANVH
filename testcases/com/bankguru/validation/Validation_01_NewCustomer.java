@@ -8,10 +8,8 @@ import pageObjects.NewCustomerPageObject;
 
 import org.testng.annotations.BeforeClass;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
@@ -192,7 +190,58 @@ public class Validation_01_NewCustomer {
 	public void TC_20_PinCannotHaveBlankSpace() {
 		System.out.println("TC_20_PinCannotHaveBlankSpace");
 		newCustomer.inputToPINTextbox("123 45");
-		Assert.assertEquals(newCustomer.getPinErrorMessageText(), "First character can not have space");
+		Assert.assertEquals(newCustomer.getPinErrorMessageText(), "Characters are not allowed");
+	}
+	
+	@Test
+	public void TC_21_TelephoneCannotBeEmpty() {
+		System.out.println("TC_21_TelephoneCannotBeEmpty");
+		newCustomer.inputToPhoneTextbox("");
+		newCustomer.pressTabToMoveNextField();
+		Assert.assertEquals(newCustomer.getPhoneErrorMessageText(), "Mobile no must not be blank");
+	}
+	
+	@Test
+	public void TC_22_PhoneCannotHaveFirstCharAsBlankSpace() {
+		System.out.println("TC_22_PhoneCannotHaveFirstCharAsBlankSpace");
+		newCustomer.inputToPhoneTextbox(" ");
+		Assert.assertEquals(newCustomer.getPhoneErrorMessageText(), "First character can not have space");
+	}
+	
+	@Test
+	public void TC_23_PhoneCannotHaveBlankSpace() {
+		System.out.println("TC_23_PhoneCannotHaveBlankSpace");
+		newCustomer.inputToPhoneTextbox("0905 123456");
+		Assert.assertEquals(newCustomer.getPhoneErrorMessageText(), "Characters are not allowed");
+	}
+	
+	@Test
+	public void TC_24_PhoneCannotHaveSpecialCharacters() {
+		System.out.println("TC_24_PhoneCannotHaveSpecialCharacters");
+		newCustomer.inputToPhoneTextbox("@#$%0905123");
+		Assert.assertEquals(newCustomer.getPhoneErrorMessageText(), "Special characters are not allowed");
+	}
+	
+	@Test
+	public void TC_25_EmailCannotBeEmpty() {
+		System.out.println("TC_25_EmailCannotBeEmpty");
+		newCustomer.inputToEmailTextbox("");
+		newCustomer.pressTabToMoveNextField();
+		Assert.assertEquals(newCustomer.getEmailErrorMessageText(), "Email-ID must not be blank");
+	}
+	
+	@Test
+	public void TC_26_EmailMustBeInCorrectFormat() {
+		System.out.println("TC_26_EmailMustBeInCorrectFormat");
+		newCustomer.inputToEmailTextbox("abc@mail");
+		Assert.assertEquals(newCustomer.getEmailErrorMessageText(), "Email-ID is not valid");
+	}
+	
+	@Test
+	public void TC_27_EmailCannotHaveFirstCharAsBlankSpace() {
+		System.out.println("TC_27_EmailCannotHaveFirstCharAsBlankSpace");
+		newCustomer.inputToEmailTextbox(" abc@gmail.com");
+		Assert.assertEquals(newCustomer.getEmailErrorMessageText(), "First character can not have space");
 	}
 
 }

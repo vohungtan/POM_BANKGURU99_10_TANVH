@@ -166,4 +166,14 @@ WebDriver driver;
 		return getTextElement(driver, NewCustomerPageUI.PIN_ERROR_MESSAGE);
 	}
 
+	public String getPhoneErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.PHONE_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.PHONE_ERROR_MESSAGE);
+	}
+
+	public String getEmailErrorMessageText() {
+		waitForElementVisible(driver, NewCustomerPageUI.EMAIL_ERROR_MESSAGE);
+		return getTextElement(driver, NewCustomerPageUI.EMAIL_ERROR_MESSAGE);
+	}
+
 }

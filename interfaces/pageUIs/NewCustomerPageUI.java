@@ -10,6 +10,8 @@ public class NewCustomerPageUI {
 	public static final String CITY_ERROR_MESSAGE = "//label[@id='message4']";
 	public static final String STATE_ERROR_MESSAGE = "//label[@id='message5']";
 	public static final String PIN_ERROR_MESSAGE = "//label[@id='message6']";
+	public static final String PHONE_ERROR_MESSAGE = "//label[@id='message7']";
+	public static final String EMAIL_ERROR_MESSAGE = "//label[@id='message9']";
 	public static final String GENDER_MALE_RADIO = "//input[@value='m']";
 	public static final String DATE_OF_BIRTH_TEXTBOX = "//input[@name='dob']";
 	public static final String ADDRESS_TEXTAREA = "//textarea[@name='addr']";
