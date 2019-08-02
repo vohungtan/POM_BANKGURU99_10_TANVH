@@ -31,6 +31,9 @@ public class NewCustomerPageUI {
 	public static final String PHONE_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Mobile No.']/following-sibling::td";
 	public static final String PIN_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Pin']/following-sibling::td";
 	public static final String EMAIL_VALUE_IN_TABLE = "//table[@id='customer']//td[text()='Email']/following-sibling::td";
+
 	public static final String DEPOSIT_LINK = "//a[text()='Deposit']";
+
+
 
 }

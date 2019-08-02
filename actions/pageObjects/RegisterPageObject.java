@@ -36,10 +36,14 @@ public class RegisterPageObject extends AbstractPage {
 		return getTextElement(driver, RegisterPageUI.PASSWORD_TEXT);
 	}
 
+
 	public LoginPageObject openLoginPageUrl(String loginPageUrl) {
 		openUrl(driver, loginPageUrl);
 		return new LoginPageObject(driver);
 	}
-
-
 }
+//=======
+//	public void openLoginPageUrl(String loginPageUrl) {
+//		openUrl(driver, loginPageUrl);
+//>>>>>>> branch 'master' of https://github.com/vohungtan/POM_BANKGURU99_10_TANVH
+//	}

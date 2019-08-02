@@ -2,7 +2,11 @@
 <suite name="BANK GURU" parallel="false">
   <test name="Run on FIREFOX">
     <classes>
+<<<<<<< HEAD
       <class name="com.bankguru.account.Account_05_RegisterAndLogin_PageGenerator"/>
+=======
+      <class name="com.bankguru.account.Account_04_RegisterAndLogin_Selenium_PageFactory"/>
+>>>>>>> branch 'master' of https://github.com/vohungtan/POM_BANKGURU99_10_TANVH
     </classes>
   </test> 
 </suite> 
