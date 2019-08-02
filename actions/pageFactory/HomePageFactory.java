@@ -28,7 +28,6 @@ public class HomePageFactory {
 	public boolean isUserIDDisplayed(String userID) {
 		String actualText = userIDText.getText().trim();
 		return actualText.contains(userID);
-		
 	}
 
 	public void openLoginPageUrl(String loginPageUrl) {
