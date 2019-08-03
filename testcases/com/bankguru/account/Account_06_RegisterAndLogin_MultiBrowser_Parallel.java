@@ -2,6 +2,7 @@ package com.bankguru.account;
 
 import org.testng.annotations.Test;
 
+import commons.AbstractTest;
 import commons.PageGeneratorManager;
 import pageObjects.DepositPageObject;
 import pageObjects.HomePageObject;
@@ -11,33 +12,20 @@ import pageObjects.RegisterPageObject;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+
 import java.util.Random;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
-public class Account_05_RegisterAndLogin_PageGenerator {
+public class Account_06_RegisterAndLogin_MultiBrowser_Parallel extends AbstractTest{
 
-	WebDriver driver;
-	LoginPageObject loginPage;
-	RegisterPageObject registerPage;
-	HomePageObject homePage;
-	NewCustomerPageObject newCustomerPage;
-	DepositPageObject depositPage;
-	String email, username, password, loginPageUrl;
-
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		driver = new FirefoxDriver();
+	public void beforeClass(String browserName) {
+		driver = openMultiBrowser(browserName);
 		email = "pom" + randomDataTest() + "@gmail.com";
-
-		System.out.println("PRE-CONDITION - STEP: 1. Open BankGuru Application");
-		driver.get("http://demo.guru99.com/v4/");
 		loginPage = PageGeneratorManager.getLoginPage(driver);
-
-		System.out.println("PRE-CONDITION - STEP: 2. Get Login Page Url");
-		loginPageUrl = loginPage.getLoginPageUrl();
-		driver.manage().window().maximize();
 
 	}
 
@@ -45,6 +33,7 @@ public class Account_05_RegisterAndLogin_PageGenerator {
 	public void TC_01_RegisterToSystem() {
 
 		System.out.println("REGISTER - STEP 1: Click to 'Here'");
+		loginPageUrl = loginPage.getLoginPageUrl();
 		registerPage = loginPage.clickToHereLink();
 
 		System.out.println("REGISTER - STEP 2: Input to Email ID textbox");
@@ -76,11 +65,11 @@ public class Account_05_RegisterAndLogin_PageGenerator {
 		System.out.println("LOGIN - STEP 5: Verify UserID displayed");
 		Assert.assertTrue(homePage.isUserIDDisplayed(username));
 	}
-	
+
 	@Test
 	public void TC_03_OpenMultiplePage() {
 		newCustomerPage = homePage.openNewCustomerPage();
-		
+
 		depositPage = homePage.openDepositPage();
 	}
 
@@ -88,6 +77,14 @@ public class Account_05_RegisterAndLogin_PageGenerator {
 		Random random = new Random();
 		return random.nextInt(999999);
 	}
+
+	WebDriver driver;
+	LoginPageObject loginPage;
+	RegisterPageObject registerPage;
+	HomePageObject homePage;
+	NewCustomerPageObject newCustomerPage;
+	DepositPageObject depositPage;
+	String email, username, password, loginPageUrl;
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {

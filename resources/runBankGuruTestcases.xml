@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANK GURU" parallel="false">
   <test name="Run on FIREFOX">
+  	<parameter 	name = "browser" value = "firefox"></parameter>
     <classes>
-<<<<<<< HEAD
-      <class name="com.bankguru.account.Account_05_RegisterAndLogin_PageGenerator"/>
-=======
-      <class name="com.bankguru.account.Account_04_RegisterAndLogin_Selenium_PageFactory"/>
->>>>>>> branch 'master' of https://github.com/vohungtan/POM_BANKGURU99_10_TANVH
+      <class name="com.bankguru.account.Account_06_RegisterAndLogin_MultiBrowser_Parallel"/>
+    </classes>
+  </test>
+  
+  <test name="Run on CHROME">
+  	<parameter 	name = "browser" value = "chrome"></parameter>
+    <classes>
+      <class name="com.bankguru.account.Account_06_RegisterAndLogin_MultiBrowser_Parallel"/>
+    </classes>
+  </test>
+  
+  <test name="Run on CHROMEHEADLESS">
+  	<parameter 	name = "browser" value = "chromeheadless"></parameter>
+    <classes>
+      <class name="com.bankguru.account.Account_06_RegisterAndLogin_MultiBrowser_Parallel"/>
+    </classes>
+  </test>
+  
+  <test name="Run on IE">
+  	<parameter 	name = "browser" value = "internetexplorer"></parameter>
+    <classes>
+      <class name="com.bankguru.account.Account_06_RegisterAndLogin_MultiBrowser_Parallel"/>
     </classes>
   </test> 
 </suite> 
