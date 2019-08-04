@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="BANK GURU" parallel="false">
+<suite name="BANK GURU" parallel="tests" thread-count="3">
+  
   <test name="Run on FIREFOX">
   	<parameter 	name = "browser" value = "firefox"></parameter>
     <classes>
