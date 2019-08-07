@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.DepositPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.RegisterPageObject;
 
@@ -28,5 +29,9 @@ public class PageGeneratorManager {
 	
 	public static DepositPageObject getDepositPage(WebDriver driver) {
 		return new DepositPageObject(driver);
+	}
+	
+	public static NewAccountPageObject getNewAccountPage(WebDriver driver) {
+		return new NewAccountPageObject(driver);
 	}
 }

@@ -7,6 +7,7 @@ import commons.PageGeneratorManager;
 import pageObjects.DepositPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
+import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.RegisterPageObject;
 
@@ -18,14 +19,14 @@ import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Account_06_RegisterAndLogin_MultiBrowser_Parallel extends AbstractTest{
+public class Account_07_RegisterAndLogin_ActionChain_WebDriverCycle extends AbstractTest{
 
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = openMultiBrowser(browserName);
-		email = "pom" + randomDataTest() + "@gmail.com";
 		loginPage = PageGeneratorManager.getLoginPage(driver);
+		email = "pom" + randomDataTest() + "@gmail.com";
 
 	}
 
@@ -66,6 +67,23 @@ public class Account_06_RegisterAndLogin_MultiBrowser_Parallel extends AbstractT
 		Assert.assertTrue(homePage.isUserIDDisplayed(username));
 	}
 
+	@Test
+	public void TC_03_OpenMultiplePage() {
+		
+		newCustomerPage = homePage.openNewCustomerPage(driver);
+
+		depositPage = newCustomerPage.openDepositPage(driver);
+		
+		newAccountPage = depositPage.openNewAccountPage(driver);
+		
+		homePage = newAccountPage.openHomePage(driver);
+		
+		depositPage = homePage.openDepositPage(driver);
+		
+		newCustomerPage = depositPage.openNewCustomerPage(driver);
+		
+		homePage = newCustomerPage.openHomePage(driver);
+	}
 
 	public int randomDataTest() {
 		Random random = new Random();
@@ -78,6 +96,7 @@ public class Account_06_RegisterAndLogin_MultiBrowser_Parallel extends AbstractT
 	HomePageObject homePage;
 	NewCustomerPageObject newCustomerPage;
 	DepositPageObject depositPage;
+	NewAccountPageObject newAccountPage;
 	String email, username, password, loginPageUrl;
 
 	@AfterClass(alwaysRun = true)

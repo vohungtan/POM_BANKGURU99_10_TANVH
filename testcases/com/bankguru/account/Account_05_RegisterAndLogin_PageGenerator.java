@@ -77,12 +77,6 @@ public class Account_05_RegisterAndLogin_PageGenerator {
 		Assert.assertTrue(homePage.isUserIDDisplayed(username));
 	}
 	
-	@Test
-	public void TC_03_OpenMultiplePage() {
-		newCustomerPage = homePage.openNewCustomerPage();
-		
-		depositPage = homePage.openDepositPage();
-	}
 
 	public int randomDataTest() {
 		Random random = new Random();

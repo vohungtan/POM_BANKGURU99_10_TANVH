@@ -27,23 +27,11 @@ public class HomePageObject extends AbstractPage {
 		
 	}
 
-	public NewCustomerPageObject clickToNewCustomerPage() {
+	public void clickToNewCustomerPage() {
 		waitForElementVisible(driver, HomePageUI.NEW_CUSTOMER_LINK);
 		clickToElement(driver, HomePageUI.NEW_CUSTOMER_LINK);
-		return PageGeneratorManager.getNewCustomerPage(driver);
 	}
-
-	public DepositPageObject openDepositPage() {
-		waitForElementVisible(driver, HomePageUI.NEW_CUSTOMER_LINK);
-		clickToElement(driver, HomePageUI.NEW_CUSTOMER_LINK);
-		return PageGeneratorManager.getDepositPage(driver);
-	}
-
-	public NewCustomerPageObject openNewCustomerPage() {
-		waitForElementVisible(driver, HomePageUI.NEW_CUSTOMER_LINK);
-		clickToElement(driver, HomePageUI.NEW_CUSTOMER_LINK);
-		return PageGeneratorManager.getNewCustomerPage(driver);
-	}
+	
 }
 //=======
 //import pageUIs.HomePageUI;

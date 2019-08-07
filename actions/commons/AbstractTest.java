@@ -34,8 +34,9 @@ public class AbstractTest {
 			System.out.println("Please choose your browser in TestNG xml file");
 		}
 		driver.get("http://demo.guru99.com/v4/");
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
 		return driver;
 	}
 
