@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pageObjects.DepositPageObject;
 import pageObjects.HomePageObject;
+import pageObjects.LoginPageObject;
 import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageUIs.AbstractPageUI;
@@ -74,6 +75,12 @@ public class AbstractPage {
 
 	/* Web Element */
 	public void clickToElement(WebDriver driver, String locator) {
+		element = driver.findElement(By.xpath(locator));
+		element.click();
+	}
+	
+	public void clickToElement(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
 		element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
@@ -155,6 +162,12 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
+		element = driver.findElement(By.xpath(locator));
+		return element.isDisplayed();
+	}
+	
+	public boolean isControlDisplayed(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
 		element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
@@ -275,9 +288,14 @@ public class AbstractPage {
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
 	}
 	
+	public void waitForElementVisible(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
+		waitExplicit = new WebDriverWait(driver, 30);
+		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(locator)));
+	}
+	
 	public void waitForElementInvisible(WebDriver driver, String locator) {
-		waitExplicit = new WebDriverWait(driver, 10);
-		
+		waitExplicit = new WebDriverWait(driver, 10);		
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 	}
 
@@ -304,6 +322,30 @@ public class AbstractPage {
 		waitForElementVisible(driver, AbstractPageUI.MANAGER_LINK);
 		clickToElement(driver, AbstractPageUI.MANAGER_LINK);
 		return PageGeneratorManager.getHomePage(driver);
+	}
+	
+	public LoginPageObject openLogoutLink(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.LOGOUT_LINK);
+		clickToElement(driver, AbstractPageUI.LOGOUT_LINK);
+		
+		acceptAlert(driver);
+		sleepInSecond(driver, 3);
+		
+		return PageGeneratorManager.getLoginPage(driver);
+		
+	}
+
+	public void openMultiplePage(WebDriver driver, String pageName) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
+	}
+	
+	public void sleepInSecond(WebDriver driver, long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond * 1000);
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private WebElement element;

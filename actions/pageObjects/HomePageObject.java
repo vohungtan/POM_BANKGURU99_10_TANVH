@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 
-import commons.PageGeneratorManager;
 import pageUIs.HomePageUI;
 
 public class HomePageObject extends AbstractPage {

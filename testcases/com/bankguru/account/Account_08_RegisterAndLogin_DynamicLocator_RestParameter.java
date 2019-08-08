@@ -19,7 +19,7 @@ import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Account_07_RegisterAndLogin_ActionChain_WebDriverCycle extends AbstractTest{
+public class Account_08_RegisterAndLogin_DynamicLocator_RestParameter extends AbstractTest{
 
 	@Parameters("browser")
 	@BeforeClass
