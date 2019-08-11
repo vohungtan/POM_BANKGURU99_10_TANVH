@@ -335,7 +335,23 @@ public class AbstractPage {
 		
 	}
 
-	public void openMultiplePage(WebDriver driver, String pageName) {
+	public AbstractPage openMultiplePage(WebDriver driver, String pageName) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
+		
+		switch (pageName) {
+		case "New Customer":
+			return PageGeneratorManager.getNewCustomerPage(driver);
+		case "New Account":
+			return PageGeneratorManager.getNewAccountPage(driver);
+		case "Deposit":
+			return PageGeneratorManager.getDepositPage(driver);
+		default:
+			return PageGeneratorManager.getHomePage(driver);
+		}
+	}
+	
+	public void openMultiplePages(WebDriver driver, String pageName) {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
 	}

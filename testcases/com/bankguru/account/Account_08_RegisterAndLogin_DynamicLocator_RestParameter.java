@@ -69,20 +69,26 @@ public class Account_08_RegisterAndLogin_DynamicLocator_RestParameter extends Ab
 
 	@Test
 	public void TC_03_OpenMultiplePage() {
-		
-		newCustomerPage = homePage.openNewCustomerPage(driver);
+		// Cach 1
+		System.out.println("Action Chain - STEP: 1. Home Page navigate to New Customer Page");
+		newCustomerPage = (NewCustomerPageObject) homePage.openMultiplePage(driver, "New Customer");
 
-		depositPage = newCustomerPage.openDepositPage(driver);
+		System.out.println("Action Chain - STEP: 2. New Customer Page navigate to Deposit Page");
+		depositPage = (DepositPageObject) homePage.openMultiplePage(driver, "Deposit");
 		
-		newAccountPage = depositPage.openNewAccountPage(driver);
+		//Cach 2
+		System.out.println("Action Chain - STEP: 3. Deposit Page navigate to New Account Page");
+		depositPage.openMultiplePages(driver, "New Account");
+		newAccountPage = PageGeneratorManager.getNewAccountPage(driver);
 		
-		homePage = newAccountPage.openHomePage(driver);
+		System.out.println("Action Chain - STEP: 4. New Account Page navigate to Home Page");
+		newAccountPage.openMultiplePages(driver, "Manager");
+		homePage = PageGeneratorManager.getHomePage(driver);
 		
-		depositPage = homePage.openDepositPage(driver);
+		System.out.println("Action Chain - STEP: 5. Home Page navigate to Deposit Page");
+		homePage.openMultiplePages(driver, "Deposit");
+		depositPage = PageGeneratorManager.getDepositPage(driver);
 		
-		newCustomerPage = depositPage.openNewCustomerPage(driver);
-		
-		homePage = newCustomerPage.openHomePage(driver);
 		
 	}
 
