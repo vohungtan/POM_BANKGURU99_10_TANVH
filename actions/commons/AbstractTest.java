@@ -27,14 +27,14 @@ public class AbstractTest {
 			System.setProperty("webdriver.chrome.driver", rootFolder + "/resources/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
-			options.addArguments("window-size=1280x800");
+			options.addArguments("window-size=" + Constants.HEADLESS_RESOLUTION);
 			driver = new ChromeDriver(options);
 			
 		} else {
 			System.out.println("Please choose your browser in TestNG xml file");
 		}
-		driver.get("http://demo.guru99.com/v4/");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get(Constants.DEV_URL);
+		driver.manage().timeouts().implicitlyWait(Constants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 		return driver;

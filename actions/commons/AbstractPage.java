@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -165,6 +166,26 @@ public class AbstractPage {
 		element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
+	
+	public boolean isControlUndisplayed(WebDriver driver, String locator) {
+		Date date = new Date();
+		System.out.println("Start time = " + date.toString());
+		List<WebElement> elements = driver.findElements(By.xpath(locator));
+		
+		if(elements.size() == 0) {
+			System.out.println("Element not in DOM");
+			System.out.println("End time = " + new Date().toString());
+			return true;
+		}else if(elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			System.out.println("Element in DOM but not visible/displayed");
+			System.out.println("End time = " + new Date().toString());
+			return true;
+		}else {
+			System.out.println("Element in DOM and visible");
+			return false;
+		}
+	}
+	
 	
 	public boolean isControlDisplayed(WebDriver driver, String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
