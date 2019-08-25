@@ -1,0 +1,9 @@
+2019-08-25 21:44:33,803 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 01: Verify Login Page is displayed
+2019-08-25 21:44:33,893 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 02: Verify Delete Customer Form is not displayed
+2019-08-25 21:44:33,976 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 03: Click to Selenium Toogle
+2019-08-25 21:44:34,094 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 04: Verify Delete Customer Form is displayed
+2019-08-25 21:44:34,193 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - ===PASSED==
+2019-08-25 21:44:34,193 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 05: Verify Home Page is not displayed
+2019-08-25 21:44:44,316 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - ===PASSED==
+2019-08-25 21:44:44,317 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - REGISTER - STEP 06: Verify Register Page is not displayed
+2019-08-25 21:44:54,404 INFO  com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML - ===PASSED==

@@ -168,22 +168,23 @@ public class AbstractPage {
 	}
 	
 	public boolean isControlUndisplayed(WebDriver driver, String locator) {
-		Date date = new Date();
-		System.out.println("Start time = " + date.toString());
+		overrideGlobalTimeout(driver, Constants.SHORT_TIMEOUT);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		
 		if(elements.size() == 0) {
-			System.out.println("Element not in DOM");
-			System.out.println("End time = " + new Date().toString());
+			overrideGlobalTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
 		}else if(elements.size() > 0 && !elements.get(0).isDisplayed()) {
-			System.out.println("Element in DOM but not visible/displayed");
-			System.out.println("End time = " + new Date().toString());
+			overrideGlobalTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
 		}else {
-			System.out.println("Element in DOM and visible");
+			overrideGlobalTimeout(driver, Constants.LONG_TIMEOUT);
 			return false;
 		}
+	}
+	
+	public void overrideGlobalTimeout(WebDriver driver, int timeOut) {
+		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 	}
 	
 	
@@ -316,8 +317,11 @@ public class AbstractPage {
 	}
 	
 	public void waitForElementInvisible(WebDriver driver, String locator) {
-		waitExplicit = new WebDriverWait(driver, 10);		
+		waitExplicit = new WebDriverWait(driver, 10);
+		overrideGlobalTimeout(driver, Constants.SHORT_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+		overrideGlobalTimeout(driver, Constants.LONG_TIMEOUT);
+		
 	}
 
 	public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
