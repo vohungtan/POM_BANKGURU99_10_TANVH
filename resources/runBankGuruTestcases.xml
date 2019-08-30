@@ -7,10 +7,11 @@
   		<listener	class-name="commons.ExtentReportListener"/>
   </listeners>
   
-  <test name="Run on FIREFOX">
-  	<parameter 	name = "browser" value = "firefox"></parameter>
+  <test name="Run on CHROME_1">
+  	<parameter 	name = "browser" value = "chrome"></parameter>
     <classes>
-      <class name="com.bankguru.account.Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML"/>
+      <class name="com.bankguru.commons.Common_01_RegisterToSystem"/>
+      <class name="com.bankguru.account.Account_11_RegisterAndLogin_ShareState"/>
     </classes>
   </test>
   

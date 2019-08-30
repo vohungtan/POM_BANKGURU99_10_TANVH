@@ -70,7 +70,7 @@ public class Account_10_RegisterAndLogin_Assert_Verify_Log_ReportHTML extends Ab
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowserAndDriver(driver);
 	}
 
 }

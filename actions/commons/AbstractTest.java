@@ -131,4 +131,38 @@ public class AbstractTest {
 		return random.nextInt(999999);
 	}
 
+	protected void closeBrowserAndDriver(WebDriver driver) {
+		try {
+			// get ra tên của OS và convert qua chữ thường
+			String osName = System.getProperty("os.name").toLowerCase();
+			log.info("OS name = " + osName);
+
+			// Khai báo 1 biến command line để thực thi
+			String cmd = "";
+			if (driver != null) {
+				driver.quit();
+			}
+
+			if (driver.toString().toLowerCase().contains("chrome")) {
+				if (osName.toLowerCase().contains("mac")) {
+					cmd = "pkill chromedriver";
+				} else if (osName.toLowerCase().contains("windows")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq chromedriver*\"";
+				}
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			}
+
+			if (driver.toString().toLowerCase().contains("internetexplorer")) {
+				if (osName.toLowerCase().contains("window")) {
+					cmd = "taskkill /F /FI \"IMAGENAME eq IEDriverServer*\"";
+					Process process = Runtime.getRuntime().exec(cmd);
+					process.waitFor();
+				}
+			}
+			log.info("---------- QUIT BROWSER SUCCESS ----------");
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		}
+	}
 }
