@@ -9,8 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AbstractTest {
 
@@ -22,32 +25,34 @@ public class AbstractTest {
 		log = LogFactory.getLog(getClass());
 	}
 
-	public WebDriver openMultiBrowser(String browserName) {
-		String rootFolder = System.getProperty("user.dir");
-
+	protected WebDriver openMultiBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-
-			System.setProperty("webdriver.chrome.driver", rootFolder + "/resources/chromedriver");
+			//Auto download latest version
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 
 		} else if (browserName.equalsIgnoreCase("chromeheadless")) {
-
-			System.setProperty("webdriver.chrome.driver", rootFolder + "/resources/chromedriver");
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
 			options.addArguments("window-size=" + Constants.HEADLESS_RESOLUTION);
 			driver = new ChromeDriver(options);
 
-		} else {
+		} else if(browserName.equalsIgnoreCase("ie")) {
+			WebDriverManager.iedriver().setup();
+			driver = new InternetExplorerDriver();
+		}
+		
+		else {
 			System.out.println("Please choose your browser in TestNG xml file");
 		}
-		driver.get(Constants.DEV_URL);
-		driver.manage().timeouts().implicitlyWait(Constants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Constants.SHORT_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-
+		driver.get(Constants.DEV_URL);
 		return driver;
 	}
 

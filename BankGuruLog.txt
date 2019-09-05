@@ -1,0 +1,34 @@
+2019-09-05 22:05:53,840 INFO  com.bankguru.commons.Common_01_RegisterToSystem - REGISTER - STEP 01: Verify Login Page is displayed
+2019-09-05 22:05:53,920 INFO  com.bankguru.commons.Common_01_RegisterToSystem - ===PASSED==
+2019-09-05 22:05:53,922 INFO  com.bankguru.commons.Common_01_RegisterToSystem - REGISTER - STEP 02: Click to 'Here'
+2019-09-05 22:05:57,090 INFO  com.bankguru.commons.Common_01_RegisterToSystem - REGISTER - STEP 03: Input to Email ID textbox
+2019-09-05 22:05:57,366 INFO  com.bankguru.commons.Common_01_RegisterToSystem - REGISTER - STEP 04: Click to SUBMIT button
+2019-09-05 22:05:58,454 INFO  com.bankguru.commons.Common_01_RegisterToSystem - REGISTER - STEP 05: Get Username/ Password infor
+2019-09-05 22:05:58,659 INFO  com.bankguru.commons.Common_01_RegisterToSystem - OS name = mac os x
+2019-09-05 22:05:58,866 INFO  com.bankguru.commons.Common_01_RegisterToSystem - ---------- QUIT BROWSER SUCCESS ----------
+2019-09-05 22:06:08,031 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Pre-condition - STEP 01: Input to UserID/ Password textbox
+2019-09-05 22:06:08,414 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Pre-condition - STEP 02: Click to LOGIN button
+2019-09-05 22:06:10,482 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Pre-condition - STEP 03: Verify Welcome Message displayed
+2019-09-05 22:06:10,517 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED==
+2019-09-05 22:06:12,323 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Actual = Customer name must not be blank
+2019-09-05 22:06:12,323 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Expected = Customer name must not be blank
+2019-09-05 22:06:12,323 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Compare value = true
+2019-09-05 22:06:12,324 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED===
+2019-09-05 22:06:12,377 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Actual = Date Field must not be blank
+2019-09-05 22:06:12,377 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Expected = Date Field must not be blank
+2019-09-05 22:06:12,377 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Compare value = true
+2019-09-05 22:06:12,377 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED===
+2019-09-05 22:06:12,453 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Actual = City Field must not be blank
+2019-09-05 22:06:12,453 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Expected = City Field must not be blank
+2019-09-05 22:06:12,453 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Compare value = true
+2019-09-05 22:06:12,453 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED===
+2019-09-05 22:06:12,506 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Actual = State must not be blank
+2019-09-05 22:06:12,506 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Expected = State must not be blank
+2019-09-05 22:06:12,506 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Compare value = true
+2019-09-05 22:06:12,507 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED===
+2019-09-05 22:06:12,614 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Actual = PIN Code must not be blank
+2019-09-05 22:06:12,615 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Expected = PIN Code must not be blank
+2019-09-05 22:06:12,615 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - Compare value = true
+2019-09-05 22:06:12,615 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ===PASSED===
+2019-09-05 22:06:14,421 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - OS name = mac os x
+2019-09-05 22:06:14,749 INFO  com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement - ---------- QUIT BROWSER SUCCESS ----------

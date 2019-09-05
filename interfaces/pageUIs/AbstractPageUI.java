@@ -9,4 +9,10 @@ public class AbstractPageUI {
 	public static final String LOGOUT_LINK = "//a[text()='Log out']";
 	
 	public static final String DYNAMIC_MENU_LINK = "//a[text()='%s']";
+	public static final String DYNAMIC_TEXTBOX = "//input[@name='%s']";
+	public static final String DYNAMIC_TEXTAREA = "//textarea[@name='%s']";
+	public static final String DYNAMIC_RADIO_BUTTON = "//input[@value='%s']";
+	public static final String DYNAMIC_BUTTON = "//input[@value='%s']";
+	public static final String DYNAMIC_ERROR_MESSAGE = "//td[text()='%s']/following-sibling::td/label";
 }
+

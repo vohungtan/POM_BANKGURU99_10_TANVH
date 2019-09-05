@@ -19,7 +19,6 @@ public class LoginPageObject extends AbstractPage {
 	}
 
 	public RegisterPageObject clickToHereLink() {
-		
 		waitForElementVisible(driver, LoginPageUI.HERE_LINK);
 		clickToElement(driver, LoginPageUI.HERE_LINK);
 		return PageGeneratorManager.getRegisterPage(driver);

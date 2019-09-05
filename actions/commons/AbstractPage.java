@@ -1,6 +1,5 @@
 package commons;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -91,6 +90,13 @@ public class AbstractPage {
 		element.clear();
 		element.sendKeys(value);
 	}
+	
+	public void sendKeyToElement(WebDriver driver, String locator, String sendkeyValue, String...values) {
+		locator = String.format(locator, (Object[]) values);
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+		element.sendKeys(sendkeyValue);
+	}
 
 	public void selectItemInDropdown(WebDriver driver, String locator, String itemText) {
 		element = driver.findElement(By.xpath(locator));
@@ -139,6 +145,12 @@ public class AbstractPage {
 	}
 
 	public String getTextElement(WebDriver driver, String locator) {
+		element = driver.findElement(By.xpath(locator));
+		return element.getText();
+	}
+	
+	public String getTextElement(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
 		element = driver.findElement(By.xpath(locator));
 		return element.getText();
 	}
@@ -272,6 +284,13 @@ public class AbstractPage {
 		action.sendKeys(element, key).perform();
 	}
 	
+	public void sendKeyboardToElement(WebDriver driver, String locator, Keys key, String... values) {
+		locator = String.format(locator, (Object[]) values);
+		element = driver.findElement(By.xpath(locator));
+		action = new Actions(driver);
+		action.sendKeys(element, key).perform();
+	}
+	
 
 	public void uploadFile(WebDriver driver, String uploadFileLocator, String startUploadLocator, String fileNamePath) {
 		element = driver.findElement(By.xpath(uploadFileLocator));
@@ -379,6 +398,36 @@ public class AbstractPage {
 	public void openMultiplePages(WebDriver driver, String pageName) {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
+	}
+	
+	public void inputToDynamicTextbox(WebDriver driver, String nameID, String value) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX, nameID);
+		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX, value, nameID);
+	}
+	
+	public void inputToDynamicTextArea(WebDriver driver, String nameID, String value) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTAREA, nameID);
+		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTAREA, value, nameID);
+	}
+	
+	public void clickToDynamicRadioButton(WebDriver driver, String attributeValue) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON, attributeValue);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_RADIO_BUTTON, attributeValue);
+	}
+	
+	public void clickToDynamicButton(WebDriver driver, String attributeValue) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_BUTTON, attributeValue);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON, attributeValue);
+	}
+	
+	public String getErrorMessageOfDynamicField(WebDriver driver, String labelName) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE, labelName);
+		return getTextElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE, labelName);
+	}
+	
+	public void pressTabToDynamicTextbox(WebDriver driver, String nameID) {
+		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX, nameID);
+		sendKeyboardToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX, Keys.TAB, nameID);
 	}
 	
 	public void sleepInSecond(WebDriver driver, long timeInSecond) {

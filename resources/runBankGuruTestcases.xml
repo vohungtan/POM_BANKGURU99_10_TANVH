@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="BANK GURU" parallel="tests" thread-count="3">
-  
-  <listeners>
-  		<listener	class-name="org.uncommons.reportng.HTMLReporter"/>
-  		<listener	class-name="org.uncommons.reportng.HTMLReporter"/>
-  		<listener	class-name="commons.ExtentReportListener"/>
-  </listeners>
-  
-  <test name="Run on CHROME_1">
-  	<parameter 	name = "browser" value = "chrome"></parameter>
-    <classes>
-      <class name="com.bankguru.commons.Common_01_RegisterToSystem"/>
-      <class name="com.bankguru.account.Account_11_RegisterAndLogin_ShareState"/>
-    </classes>
-  </test>
-  
+<suite name="BANK GURU" parallel="false" thread-count="3">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="commons.ExtentReportListener" />
+	</listeners>
+
+	<test name="Run on CHROME">
+		<parameter name="browser" value="chrome" />
+		<classes>
+ 			<class name="com.bankguru.commons.Common_01_RegisterToSystem" /> 
+ 			<class name="com.bankguru.account.Account_12_RegisterAndLogin_DynamicPageElement"/>
+		</classes>
+	</test>
+
 </suite> 
